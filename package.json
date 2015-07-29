@@ -1,0 +1,27 @@
+{
+  "name": "tiny-immutable",
+  "version": "0.0.1",
+  "description": "Tiny immutable object",
+  "repository": "git@github.com:oriSomething/tiny-immutable.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests --recursive --compilers js:babel/register",
+    "test-watch": "mocha tests -w --recursive --compilers js:babel/register"
+  },
+  "keywords": [
+    "immutable",
+    "object",
+    "tiny"
+  ],
+  "author": "ori livni",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.8.19",
+    "chai": "^3.2.0",
+    "eslint": "^0.24.1",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0"
+  }
+}
