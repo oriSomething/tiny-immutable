@@ -1,0 +1,26 @@
+{
+  "name": "tiny-immutable",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/oriSomething/tiny-immutable",
+  "authors": [
+    "ori livni <ori@orisomething.com>"
+  ],
+  "description": "Tiny immutable object",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "immutable",
+    "object",
+    "tiny"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
