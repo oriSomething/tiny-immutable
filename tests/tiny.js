@@ -1,4 +1,4 @@
-import { should } from 'chai';
+import { expect, should } from 'chai';
 
 describe('Tiny immutable', function() {
   let tiny;
@@ -99,5 +99,29 @@ describe('Tiny immutable', function() {
 
       a .should.not.equal(b);
     });
+  });
+
+  it('should throw for reassign property', function() {
+    const a = tiny.new({ x: 1 });
+
+    a.should.deep.equal({ x: 1 });
+
+    expect(function() {
+      a.x = 2;
+    }).to.throw(TypeError);
+
+    a.should.deep.equal({ x: 1 });
+  });
+
+  it('should throw for new property assign', function() {
+    const a = tiny.new({ x: 1 });
+
+    a.should.deep.equal({ x: 1 });
+
+    expect(function() {
+      a.y = 2;
+    }).to.throw(TypeError);
+
+    a.should.deep.equal({ x: 1 });
   });
 });
