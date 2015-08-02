@@ -13,15 +13,15 @@ describe('Tiny immutable', function() {
     tiny.should.be.an('object');
   });
 
-  describe('#new()', function() {
+  describe('#set()', function() {
     it('should create new object', function() {
-      const a = tiny.new();
+      const a = tiny.set();
 
       a.should.be.an('object');
     });
 
     it('should create new object with attributes', function() {
-      const a = tiny.new({
+      const a = tiny.set({
         x: 1
       });
 
@@ -30,10 +30,10 @@ describe('Tiny immutable', function() {
     });
 
     it('should create a clone object with attributes new attributes', function() {
-      const a = tiny.new({
+      const a = tiny.set({
         x: 1
       });
-      const b = a.new({
+      const b = a.set({
         y: 2
       });
 
@@ -47,10 +47,10 @@ describe('Tiny immutable', function() {
     });
   });
 
-  describe('#delete()', function() {
+  describe('#unset()', function() {
     it('should clone object', function() {
-      const a = tiny.new({ x: 1 });
-      const b = a.delete();
+      const a = tiny.set({ x: 1 });
+      const b = a.unset();
 
       a .should.be.an('object')
         .and.deep.equal({ x: 1 });
@@ -62,8 +62,8 @@ describe('Tiny immutable', function() {
     });
 
     it('should clone object and omit given string argument', function() {
-      const a = tiny.new({ x: 1, y: 2 });
-      const b = a.delete('x');
+      const a = tiny.set({ x: 1, y: 2 });
+      const b = a.unset('x');
 
       a .should.be.an('object')
         .and.deep.equal({ x: 1, y: 2 });
@@ -75,8 +75,8 @@ describe('Tiny immutable', function() {
     });
 
     it('should clone object and omit given string arguments', function() {
-      const a = tiny.new({ x: 1, y: 2, z: 3 });
-      const b = a.delete('x', 'y');
+      const a = tiny.set({ x: 1, y: 2, z: 3 });
+      const b = a.unset('x', 'y');
 
       a .should.be.an('object')
         .and.deep.equal({ x: 1, y: 2, z: 3 });
@@ -88,8 +88,8 @@ describe('Tiny immutable', function() {
     });
 
     it('should clone object and omit given array of string argument', function() {
-      const a = tiny.new({ x: 1, y: 2 });
-      const b = a.delete(['x']);
+      const a = tiny.set({ x: 1, y: 2 });
+      const b = a.unset(['x']);
 
       a .should.be.an('object')
         .and.deep.equal({ x: 1, y: 2 });
@@ -102,7 +102,7 @@ describe('Tiny immutable', function() {
   });
 
   it('should throw for reassign property', function() {
-    const a = tiny.new({ x: 1 });
+    const a = tiny.set({ x: 1 });
 
     a.should.deep.equal({ x: 1 });
 
@@ -114,7 +114,7 @@ describe('Tiny immutable', function() {
   });
 
   it('should throw for new property assign', function() {
-    const a = tiny.new({ x: 1 });
+    const a = tiny.set({ x: 1 });
 
     a.should.deep.equal({ x: 1 });
 
